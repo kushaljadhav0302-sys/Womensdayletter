@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Special Delivery ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins;
+background:linear-gradient(135deg,#ffd6e7,#ffeef5);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+max-width:420px;
+padding:20px;
+}
+
+h1{
+font-family:'Dancing Script',cursive;
+color:#ff3f7f;
+font-size:36px;
+}
+
+.badge{
+background:#ff6f99;
+color:white;
+padding:6px 14px;
+border-radius:20px;
+margin-bottom:15px;
+display:inline-block;
+}
+
+.envelope{
+width:220px;
+height:140px;
+background:#ff8fb1;
+margin:auto;
+border-radius:6px;
+cursor:pointer;
+position:relative;
+}
+
+.envelope:before{
+content:"";
+position:absolute;
+border-left:110px solid transparent;
+border-right:110px solid transparent;
+border-top:70px solid #ff6f99;
+top:0;
+left:0;
+transform-origin:top;
+transition:0.5s;
+}
+
+.open:before{
+transform:rotateX(180deg);
+}
+
+.letter{
+background:white;
+padding:25px;
+margin-top:-100px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+opacity:0;
+transform:translateY(40px);
+transition:0.7s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.photos{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:10px;
+}
+
+.photos img{
+width:80px;
+height:80px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #ff6f99;
+}
+
+.title{
+font-family:'Dancing Script';
+font-size:28px;
+color:#ff3f7f;
+}
+
+.text{
+margin-top:10px;
+font-size:15px;
+line-height:1.7;
+white-space:pre-line;
+}
+
+button{
+margin-top:15px;
+padding:10px 18px;
+border:none;
+border-radius:20px;
+background:#ff5c8a;
+color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+.loveBox{
+display:none;
+margin-top:20px;
+}
+
+.heart{
+position:absolute;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-110vh)}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="badge">💌 Special Delivery</div>
+
+<h1 id="title"></h1>
+
+<p>Something from the heart, just for you</p>
+
+<div class="envelope" id="envelope"></div>
+
+<button onclick="openLetter()">Open with Love ❤️</button>
+
+<div class="letter" id="letter">
+
+<div class="title">To My Beautiful Girl</div>
+
+<div class="photos">
+<img src="YOUR_PHOTO_URL">
+<img src="HER_PHOTO_URL">
+</div>
+
+<div class="text" id="message"></div>
+
+<div class="loveBox" id="loveBox">
+
+<p>Do you love me? ❤️</p>
+
+<button onclick="yesLove()">YES 💖</button>
+
+</div>
+
+</div>
+
+</div>
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3">
+</audio>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name") || "My Love";
+
+document.getElementById("title").innerText =
+"Happy Women's Day, " + name + " ❤️";
+
+const text = `My Dear ${name},
+
+Today is not just about celebrating women.
+It's about celebrating YOU.
+
+Your strength, your kindness,
+and the way you make the world brighter.
+
+I feel incredibly lucky to have you in my life.
+
+You make my world beautiful.
+
+Happy Women's Day ❤️
+
+Forever yours,
+Kushal`;
+
+let i=0;
+
+function typeWriter(){
+
+if(i < text.length){
+
+document.getElementById("message").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,35);
+
+}else{
+
+document.getElementById("loveBox").style.display="block";
+
+}
+
+}
+
+function openLetter(){
+
+document.getElementById("envelope").classList.add("open");
+
+setTimeout(()=>{
+
+document.getElementById("letter").classList.add("show");
+
+typeWriter();
+
+document.getElementById("music").play();
+
+},600)
+
+}
+
+function yesLove(){
+
+alert("I love you more ❤️");
+
+for(let i=0;i<40;i++){
+
+createHeart();
+
+}
+
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(Math.random()*25+15)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove()},6000)
+
+}
+
+setInterval(createHeart,700)
+
+</script>
+
+</body>
+</html>
