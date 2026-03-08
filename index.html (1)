@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Special Delivery ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffd6e7,#ffeef6);
+overflow:hidden;
+text-align:center;
+}
+
+.container{
+width:320px;
+}
+
+.badge{
+background:white;
+color:#ff4fa3;
+font-size:12px;
+padding:6px 12px;
+border-radius:20px;
+display:inline-block;
+margin-bottom:10px;
+letter-spacing:1px;
+}
+
+h1{
+color:#ff2e8a;
+font-size:22px;
+margin:10px 0;
+}
+
+.subtitle{
+font-size:12px;
+color:#777;
+margin-bottom:20px;
+}
+
+.envelope{
+width:300px;
+height:180px;
+background:#ffd1e6;
+border-radius:10px;
+position:relative;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+overflow:hidden;
+}
+
+.flap{
+position:absolute;
+width:100%;
+height:100%;
+background:#ffc0dd;
+clip-path:polygon(0 0,100% 0,50% 60%);
+transition:0.6s;
+transform-origin:top;
+}
+
+.envelope.open .flap{
+transform:rotateX(180deg);
+}
+
+.letter{
+position:absolute;
+background:white;
+width:85%;
+height:120px;
+left:7.5%;
+bottom:10px;
+border-radius:8px;
+padding:15px;
+box-sizing:border-box;
+font-size:14px;
+transform:translateY(80px);
+transition:0.6s;
+}
+
+.envelope.open .letter{
+transform:translateY(-20px);
+}
+
+.letter p{
+opacity:0;
+transition:0.6s;
+}
+
+.envelope.open .letter p{
+opacity:1;
+}
+
+.hello{
+position:absolute;
+right:-5px;
+bottom:-5px;
+width:60px;
+}
+
+.footer{
+margin-top:15px;
+font-size:11px;
+color:#ff4fa3;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="badge">SPECIAL DELIVERY</div>
+
+<h1>Happy Women's Day, My Love!</h1>
+
+<div class="subtitle">
+Something from the heart, just for you 💌
+</div>
+
+<div class="envelope" onclick="openLetter()" id="envelope">
+
+<div class="flap"></div>
+
+<div class="letter">
+<p>
+You are strong, beautiful, and amazing.  
+Today is about celebrating the incredible woman you are.  
+Thank you for bringing happiness into my life.  
+
+Happy Women's Day ❤️
+</p>
+</div>
+
+<img class="hello" src="https://i.imgur.com/8QfQYQK.png">
+
+</div>
+
+<div class="footer">
+Opening with love...
+</div>
+
+</div>
+
+<script>
+
+function openLetter(){
+document.getElementById("envelope").classList.toggle("open");
+}
+
+</script>
+
+</body>
+</html>
